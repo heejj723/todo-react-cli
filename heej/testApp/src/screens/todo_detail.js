@@ -41,20 +41,21 @@ function TodoDetail({navigation, route}) {
   const dispatch = useContext(DispatchContext);
   const todos = useContext(TodoContext);
 
-  // if (todos.find((item) => item.id === id) === undefined) {
-  //   navigation.navigate('TabNavigator', {
-  //     screen: 'Todo',
-  //   });
-  // }
-  // const {dsc, checked, detail} = todos.find((item) => item.id === id);
-
   const deleteHandler = () => {
-    // Alert.alert('삭제', '할일을 삭제하시겠습니까?', [{
-    // }])
-    deleteItemApi(id, dispatch);
-    navigation.navigate('TabNavigator', {
-      screen: 'Todo',
-    });
+    Alert.alert('삭제', '할일을 삭제하시겠습니까?', [
+      {
+        text: '취소',
+      },
+      {
+        text: '확인',
+        onPress: () => {
+          deleteItemApi(id, dispatch);
+          navigation.navigate('TabNavigator', {
+            screen: 'Todo',
+          });
+        },
+      },
+    ]);
   };
 
   return (
@@ -76,7 +77,7 @@ function TodoDetail({navigation, route}) {
         </View>
         {/* 상세 내용 보여주는 곳 */}
         <View style={styles.detailView}>
-          <Text> {detail}</Text>
+          <Text style={{fontSize: 14}}> {detail}</Text>
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
           {/* 수정하기 버튼 */}
@@ -130,12 +131,13 @@ const styles = StyleSheet.create({
   },
   detailView: {
     width: '100%',
-    height: 544,
+    height: 600,
     backgroundColor: '#f7f7f9',
     paddingHorizontal: 16,
+    paddingTop: 18,
     marginVertical: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
 
   titleText: {

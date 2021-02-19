@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import React, {useReducer, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar} from 'react-native';
+import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
+import {StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import TopTabNavigator from './src/navigation/top_navigator';
 import axios from 'axios';
@@ -17,15 +17,29 @@ const RootStack = createStackNavigator();
 export const TodoContext = React.createContext('');
 export const DispatchContext = React.createContext();
 
+// 할일 상세보기 - 수정하기 Stack
 function InDetailStack() {
   return (
-    <DetailStack.Navigator>
-      <DetailStack.Screen name="DetailScreen" component={TodoDetailScreen} />
-      <DetailStack.Screen name="EditScreen" component={TodoEditScreen} />
+    <DetailStack.Navigator
+      tabBarOptions={{
+        labelStyle: {fontSize: 30, fontWeight: 'bold'},
+      }}
+    >
+      <DetailStack.Screen
+        name="DetailScreen"
+        component={TodoDetailScreen}
+        options={{title: '할일', headerTitleStyle: {fontSize: 20}}}
+      />
+      <DetailStack.Screen
+        name="EditScreen"
+        component={TodoEditScreen}
+        options={{title: '수정', headerTitleStyle: {fontSize: 20}}}
+      />
     </DetailStack.Navigator>
   );
 }
 
+// TabNavigation 과 IndetailStack 을 연결함
 function InRootStack() {
   return (
     <RootStack.Navigator
@@ -33,8 +47,8 @@ function InRootStack() {
         headerShown: false,
       }}
     >
-      <RootStack.Screen name="TabNavigator" component={TopTabNavigator} />
-      <RootStack.Screen name="DetailStack" component={InDetailStack} />
+      <RootStack.Screen name="TabNavigator" component={TopTabNavigator} options={{title: ' '}} />
+      <RootStack.Screen name="DetailStack" component={InDetailStack} options={{title: ' '}} />
     </RootStack.Navigator>
   );
 }

@@ -1,11 +1,9 @@
 import 'react-native-gesture-handler';
-import React, {useReducer, useContext} from 'react';
-import {StyleSheet, Text, View, TextInput, ImageBackground, Alert, FlatList, TouchableOpacity} from 'react-native';
-import axios from 'axios';
+import React, {useContext} from 'react';
+import {FlatList} from 'react-native';
+
 import TodoListItem from './todoListItem.js';
-import {useEffect} from 'react';
 import {TodoContext} from '../../App';
-// const todos = useContext(TodoContext);
 
 export const TodoList = () => {
   const todos = useContext(TodoContext);
@@ -39,12 +37,6 @@ export const Favorlist = () => {
   console.log('Favorlist: ', favors);
 
   return (
-    // 1. FlatList
-    //      2가지 필수속성
-    //      1)data -FlatList가 보여줄 대량의 데이터 */}
-    //      2) renderItem - 아이템 하나의 모양(컴포넌트)를 만들어서 리턴하는 콜백함수 지정 */}
-    //      3)keyExtractor={item=>item.name} - 오류는 아니지만 경고뜸 -> name 이 unique 한 값이 아닐 수 있기 때문.
-
     <FlatList
       style={{
         marginTop: 36,

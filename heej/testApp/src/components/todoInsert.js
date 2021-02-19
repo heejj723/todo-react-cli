@@ -1,23 +1,8 @@
 import 'react-native-gesture-handler';
 import React, {useState, useContext} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  fetch,
-  TextInput,
-  ImageBackground,
-  Alert,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Alert, TouchableOpacity} from 'react-native';
 import axios from 'axios';
 import {TodoContext, DispatchContext} from '../../App';
-
-//newTodoItem 을 db에 추가하는 함수
-
-// const todos = useContext(TodoContext);
-// const dispatch = useContext(DispatchContext);
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:8080/todolistservices/api',
@@ -143,9 +128,6 @@ const styles = StyleSheet.create({
     color: 'black',
     marginTop: 36,
     width: '100%',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // backgroundColor: 'black',
   },
 
   flatListItemContainer: {

@@ -1,20 +1,14 @@
-import React, {useReducer, useEffect} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import TodoScreen from '../screens/todo';
 import FavoriteScreen from '../screens/favorite';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar} from 'react-native';
-import {reducer} from '../reducer/reducer';
-import axios from 'axios';
+import {StyleSheet} from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const NavigationContext = React.createContext();
 
 export default function Tabs({navigation}) {
-  //state.data 를 조회
-  // console.log('topNavigator: ', todos);
-
   return (
     <NavigationContext.Provider value={navigation}>
       <Tab.Navigator

@@ -23,6 +23,7 @@ export default function Todo() {
 const styles = StyleSheet.create({
   mainView: {
     paddingHorizontal: 20,
+    backgroundColor: 'white',
   },
   titleView: {
     marginTop: 24,

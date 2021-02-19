@@ -21,7 +21,6 @@ export default function Favorite() {
     axiosInstance
       .get('/favorlists/1', {headers})
       .then(function (response) {
-        // console.log(response.data);
         setFavors(response.data);
       })
       .catch(function (error) {
@@ -31,7 +30,6 @@ export default function Favorite() {
   };
 
   useEffect(() => {
-    // console.log('<Todolist>data Fetch');
     getFavorsFromApi();
   }, []);
 

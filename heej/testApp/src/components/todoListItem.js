@@ -1,11 +1,8 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, Text, View, TextInput, ImageBackground, Alert, FlatList, TouchableOpacity} from 'react-native';
-import {color} from 'react-native-reanimated';
-import {useState} from 'react';
+import {StyleSheet, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import starImage_off from '../images/rectangle.png';
 import starImage_on from '../images/rectangle_true.png';
-import {useEffect} from 'react';
 import axios from 'axios';
 import {TodoContext, DispatchContext} from '../../App';
 import {useContext} from 'react';
@@ -82,9 +79,6 @@ const styles = StyleSheet.create({
     marginTop: 36,
     backgroundColor: 'blue',
     height: 500,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // backgroundColor: 'black',
   },
 
   item: {

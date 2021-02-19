@@ -75,26 +75,24 @@ function TodoEdit({navigation, route}) {
     <SafeAreaView>
       <View style={styles.mainView}>
         <View style={styles.titleView}>
-          <ImageBackground
-            source={checked ? starImage_on : starImage_off}
-            style={{
-              width: 24,
-              height: 24,
-              margin: 8,
-            }}
-          ></ImageBackground>
           <View style={styles.titleTextView}>
             <Text style={styles.titleText}> {dsc} </Text>
           </View>
         </View>
-        <TextInput
-          style={styles.detailView}
-          onChangeText={detailInputHandler}
-          placeholder={'텍스트를 입력하세요'}
-          value={newDetail}
-        >
-          {detail}
-        </TextInput>
+        <View style={styles.detailView}>
+          <TextInput
+            style={styles.editTextInput}
+            multiline={true}
+            // onContentSizeChange={(event) => {
+            //   this.setState({height: event.nativeEvent.contentSize.height});
+            // }}
+            onChangeText={detailInputHandler}
+            placeholder={'텍스트를 입력하세요'}
+            value={newDetail}
+          >
+            {/* {detail} */}
+          </TextInput>
+        </View>
         <TouchableOpacity
           //   style={newDetail === detail ? styles.submitButton_grey : styles.submitButton_black}
           style={styles.submitButton_black}
@@ -133,12 +131,15 @@ const styles = StyleSheet.create({
   },
   detailView: {
     width: '100%',
-    height: 544,
+    height: 600,
     backgroundColor: '#f7f7f9',
     paddingHorizontal: 16,
+    paddingTop: 18,
     marginVertical: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+
+  editTextInput: {
+    width: '100%',
   },
 
   titleText: {
