@@ -44,7 +44,7 @@ export function editData(data) {
 
 export function deleteData(data) {
   return {
-    type: EDIT_DATA,
+    type: DELETE_DATA,
     id: data.id,
   };
 }

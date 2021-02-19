@@ -9,6 +9,7 @@ import {TodoContext} from '../../App';
 
 export const TodoList = () => {
   const todos = useContext(TodoContext);
+  console.log('todolist; todos: ', todos);
 
   return (
     // 1. FlatList

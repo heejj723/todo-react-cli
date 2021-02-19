@@ -1,7 +1,4 @@
 export function reducer(state, action) {
-  //   console.log('inreducer, action: ', action);
-  //   console.log('inreducer, state: ', state);
-
   switch (action.type) {
     case 'SET_DATA':
       state.splice(0, state.length);
@@ -19,6 +16,7 @@ export function reducer(state, action) {
     case 'EDIT_DATA':
       return state.map((todo) => (todo.id === action.id ? {...todo, detail: action.detail} : todo));
     case 'DELETE_DATA':
+      // state = state.filter((todo) => todo.id !== action.id);
       return state.filter((todo) => todo.id !== action.id);
   }
 }

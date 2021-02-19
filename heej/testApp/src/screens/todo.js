@@ -6,6 +6,7 @@ import {TodoList} from '../components/todoList.js';
 import axios from 'axios';
 
 export default function Todo() {
+  console.log('Rendered; Todo screen!! ');
   return (
     <View style={styles.mainView}>
       <View style={styles.titleView}>

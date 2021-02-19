@@ -42,7 +42,7 @@ const editDetailApi = async (editedItem, dispatch) => {
 
 function TodoEdit({navigation, route}) {
   const {id} = route.params;
-  //   console.log('id in TodoEdit ', id);
+  console.log('id in TodoEdit id: ', id);
 
   const todos = useContext(TodoContext);
   const dispatch = useContext(DispatchContext);

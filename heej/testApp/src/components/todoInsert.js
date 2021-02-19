@@ -39,7 +39,7 @@ const insertTodoItemApi = async (todoText, dispatch) => {
   try {
     const response = await axiosInstance.post('/todolist/', newTodoItem);
 
-    dispatch({type: 'ADD_DATA', id: null, dsc: todoText, checked: false, detail: null});
+    dispatch({type: 'ADD_DATA', id: response.data.id, dsc: todoText, checked: false, detail: null});
   } catch (error) {
     console.log({error});
   }

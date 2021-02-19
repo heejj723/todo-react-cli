@@ -20,11 +20,10 @@ function TodoListItem({id, dsc, checked, detail}) {
   const dispatch = useContext(DispatchContext);
   const todos = useContext(TodoContext);
 
-  console.log('todolist:', id);
+  console.log('todolist item:', id);
 
   // Api에 즐겨찾기 추가/삭제 요청을 보냄
   const setFavorApi = async () => {
-    console.log('todolist', id);
     try {
       const response = await axiosInstance.put('/todolist/edit/' + id);
       dispatch({type: 'EDIT_FAVOR', id: id, dsc: dsc, checked: !checked, detail: detail});
