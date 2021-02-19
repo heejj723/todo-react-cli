@@ -11,10 +11,8 @@ export default function Todo() {
       <View style={styles.titleView}>
         <Text style={styles.titleText}>To Do List</Text>
       </View>
-
-      <TodoInsert></TodoInsert>
-
-      <TodoList></TodoList>
+      <TodoInsert />
+      <TodoList />
     </View>
   );
 }

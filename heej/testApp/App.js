@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, {useReducer, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import TopTabNavigator from './src/navigation/top_navigator';
@@ -17,6 +17,7 @@ const RootStack = createStackNavigator();
 export const TodoContext = React.createContext('');
 export const DispatchContext = React.createContext();
 
+//분리
 // 할일 상세보기 - 수정하기 Stack
 function InDetailStack() {
   return (
@@ -26,8 +27,8 @@ function InDetailStack() {
       }}
     >
       <DetailStack.Screen
-        name="DetailScreen"
-        component={TodoDetailScreen}
+        name="DetailScreen" //screen 뺌
+        component={TodoDetailScreen} //
         options={{title: '할일', headerTitleStyle: {fontSize: 20}}}
       />
       <DetailStack.Screen

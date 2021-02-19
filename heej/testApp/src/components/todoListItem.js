@@ -60,7 +60,7 @@ function TodoListItem({id, dsc, checked, detail}) {
         {' '}
         {dsc}{' '}
       </Text>
-      <Text> {id}</Text>
+      {/* <Text> {id}</Text> */}
     </TouchableOpacity>
   );
 }

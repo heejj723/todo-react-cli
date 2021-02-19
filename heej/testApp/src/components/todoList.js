@@ -20,7 +20,7 @@ export const TodoList = () => {
     <FlatList
       style={{
         marginTop: 36,
-        height: '100%',
+        height: 600,
       }}
       data={todos}
       keyExtractor={({dsc}, index) => dsc}
@@ -41,7 +41,7 @@ export const Favorlist = () => {
     <FlatList
       style={{
         marginTop: 36,
-        height: '100%',
+        height: 600,
       }}
       data={favors}
       keyExtractor={({dsc}, index) => dsc}

@@ -11,6 +11,7 @@ import java.util.List;
 
 @RequestMapping("/api")
 @RestController
+//호출거부할때
 @CrossOrigin
 public class TodolistController {
     @Autowired
@@ -24,7 +25,7 @@ public class TodolistController {
 
     @GetMapping("/todolist/{id}")
     @ResponseBody
-    //@PathVariable: 주소창에 속성값을 의미함
+    //@PathVariable: 주소창에 속성값을 의미함(?)
     public Todolist readOne(@PathVariable("id") int id) {
         return todolistService.findOneTodolist(id);
     }
@@ -50,6 +51,7 @@ public class TodolistController {
     }
 
     //삭제
+    //@DeleteMapping
     @PutMapping("/todolist/delete/{id}")
     public void deleteTodolist(@PathVariable("id") int id) {
         todolistService.deleteTodolist(id);

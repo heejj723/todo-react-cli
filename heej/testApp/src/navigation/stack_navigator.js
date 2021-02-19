@@ -1,5 +1,4 @@
-import 'react-native-gesture-handler';
-
+// import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import TodoScreen from '../screens/todo';
 import TodoDetailScreen from '../screens/todo_detail';
