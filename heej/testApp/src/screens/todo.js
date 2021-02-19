@@ -1,9 +1,8 @@
 import 'react-native-gesture-handler';
-import React, {useState, useEffect, useContext} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View, TextInput, ImageBackground, Alert, FlatList, TouchableOpacity} from 'react-native';
 import TodoInsert from '../components/todoInsert.js';
 import {TodoList} from '../components/todoList.js';
-import axios from 'axios';
 
 export default function Todo() {
   console.log('Rendered; Todo screen!! ');

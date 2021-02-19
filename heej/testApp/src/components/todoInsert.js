@@ -1,17 +1,8 @@
 import 'react-native-gesture-handler';
 import React, {useState, useContext} from 'react';
 import {StyleSheet, Text, View, TextInput, Alert, TouchableOpacity} from 'react-native';
-import axios from 'axios';
 import {TodoContext, DispatchContext} from '../../App';
-
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/todolistservices/api',
-  timeout: 1000,
-});
-
-const headers = {
-  'Content-type': 'application/json',
-};
+import axiosInstance from '../apiRequests/axiosInstance';
 
 const insertTodoItemApi = async (todoText, dispatch) => {
   newTodoItem = {

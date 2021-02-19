@@ -16,7 +16,6 @@ export function reducer(state, action) {
     case 'EDIT_DATA':
       return state.map((todo) => (todo.id === action.id ? {...todo, detail: action.detail} : todo));
     case 'DELETE_DATA':
-      // state = state.filter((todo) => todo.id !== action.id);
       return state.filter((todo) => todo.id !== action.id);
   }
 }

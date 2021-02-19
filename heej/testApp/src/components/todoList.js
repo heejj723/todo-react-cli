@@ -5,9 +5,10 @@ import {FlatList} from 'react-native';
 import TodoListItem from './todoListItem.js';
 import {TodoContext} from '../../App';
 
+// 할일 탭에서 반환됨
 export const TodoList = () => {
   const todos = useContext(TodoContext);
-  console.log('todolist; todos: ', todos);
+  // console.log('todolist; todos: ', todos);
 
   return (
     // 1. FlatList
@@ -30,11 +31,11 @@ export const TodoList = () => {
   );
 };
 
+// 즐겨찾기 탭에서 반환 됨
 export const Favorlist = () => {
   const todos = useContext(TodoContext);
-  // console.log('favorlist: ', todos);
   const favors = todos.filter((todo) => todo.checked === true);
-  console.log('Favorlist: ', favors);
+  // console.log('Favorlist: ', favors);
 
   return (
     <FlatList

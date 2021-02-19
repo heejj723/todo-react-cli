@@ -1,25 +1,8 @@
 import 'react-native-gesture-handler';
 import React, {useState, useContext} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ImageBackground,
-  Alert,
-  FlatList,
-  TouchableOpacity,
-  SafeAreaView,
-} from 'react-native';
-import starImage_on from '../images/rectangle_true.png';
-import starImage_off from '../images/rectangle.png';
-import axios from 'axios';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView} from 'react-native';
 import {TodoContext, DispatchContext} from '../../App';
-
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/todolistservices/api',
-  timeout: 1000,
-});
+import axiosInstance from '../apiRequests/axiosInstance';
 
 const editDetailApi = async (editedItem, dispatch) => {
   console.log('inEditDataApi: ', editedItem);
@@ -46,7 +29,7 @@ function TodoEdit({navigation, route}) {
 
   const todos = useContext(TodoContext);
   const dispatch = useContext(DispatchContext);
-  //   console.log('todos in Todo Edit: ', todos);
+
   const {idx, dsc, checked, detail} = todos.find((item) => item.id === id);
 
   const [newDetail, setNewDetail] = useState(detail);
@@ -67,7 +50,6 @@ function TodoEdit({navigation, route}) {
     console.log('editedItem: ', editedItem);
     editDetailApi(editedItem, dispatch);
     // // 이전 화면으로 돌아가기
-    // navigation.pop();
     navigation.navigate('DetailScreen', editedItem);
   };
 
@@ -83,9 +65,6 @@ function TodoEdit({navigation, route}) {
           <TextInput
             style={styles.editTextInput}
             multiline={true}
-            // onContentSizeChange={(event) => {
-            //   this.setState({height: event.nativeEvent.contentSize.height});
-            // }}
             onChangeText={detailInputHandler}
             placeholder={'텍스트를 입력하세요'}
             value={newDetail}
@@ -94,8 +73,7 @@ function TodoEdit({navigation, route}) {
           </TextInput>
         </View>
         <TouchableOpacity
-          //   style={newDetail === detail ? styles.submitButton_grey : styles.submitButton_black}
-          style={styles.submitButton_black}
+          style={newDetail === '' ? styles.submitButton_grey : styles.submitButton_black}
           onPress={submitButtonHandler}
         >
           <Text style={styles.buttonText}> 확인 </Text>

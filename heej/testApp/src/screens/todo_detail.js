@@ -1,25 +1,10 @@
 import 'react-native-gesture-handler';
-import React, {useState, useContext} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ImageBackground,
-  Alert,
-  FlatList,
-  TouchableOpacity,
-  SafeAreaView,
-} from 'react-native';
+import React, {useContext} from 'react';
+import {StyleSheet, Text, View, ImageBackground, Alert, TouchableOpacity, SafeAreaView} from 'react-native';
 import starImage_off from '../images/rectangle.png';
 import starImage_on from '../images/rectangle_true.png';
 import {TodoContext, DispatchContext} from '../../App';
-import axios from 'axios';
-
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/todolistservices/api',
-  timeout: 1000,
-});
+import axiosInstance from '../apiRequests/axiosInstance';
 
 const deleteItemApi = async (id, dispatch) => {
   console.log('in delete: ', id);

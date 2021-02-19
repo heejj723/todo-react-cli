@@ -3,21 +3,16 @@ import React from 'react';
 import {StyleSheet, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import starImage_off from '../images/rectangle.png';
 import starImage_on from '../images/rectangle_true.png';
-import axios from 'axios';
 import {TodoContext, DispatchContext} from '../../App';
 import {useContext} from 'react';
 import {NavigationContext} from '../navigation/top_navigator';
+import axiosInstance from '../apiRequests/axiosInstance';
 
 function TodoListItem({id, dsc, checked, detail}) {
-  const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/todolistservices/api',
-    timeout: 1000,
-  });
-
   const dispatch = useContext(DispatchContext);
   const todos = useContext(TodoContext);
 
-  console.log('todolist item:', id);
+  // console.log('todolist item:', id);
 
   // Api에 즐겨찾기 추가/삭제 요청을 보냄
   const setFavorApi = async () => {
