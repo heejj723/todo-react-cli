@@ -25,17 +25,17 @@ const deleteItemApi = async (id, dispatch) => {
   console.log('in delete: ', id);
   try {
     const response = await axiosInstance.put('/todolist/delete/' + id);
-    // dispatch({
-    //   type: 'DELETE_DATA',
-    //   id: id,
-    // });
+    dispatch({
+      type: 'DELETE_DATA',
+      id: id,
+    });
   } catch (error) {
     console.log({error});
   }
 };
 
 function TodoDetail({navigation, route}) {
-  const {id} = route.params;
+  const {id, dsc, checked, detail} = route.params;
 
   console.log('in TodoDetail, params(id): ', id);
   const dispatch = useContext(DispatchContext);
@@ -46,7 +46,7 @@ function TodoDetail({navigation, route}) {
   //     screen: 'Todo',
   //   });
   // }
-  const {dsc, checked, detail} = todos.find((item) => item.id === id);
+  // const {dsc, checked, detail} = todos.find((item) => item.id === id);
 
   const deleteHandler = () => {
     // Alert.alert('삭제', '할일을 삭제하시겠습니까?', [{
@@ -54,7 +54,6 @@ function TodoDetail({navigation, route}) {
     deleteItemApi(id, dispatch);
     navigation.navigate('TabNavigator', {
       screen: 'Todo',
-      params: {id: id},
     });
   };
 

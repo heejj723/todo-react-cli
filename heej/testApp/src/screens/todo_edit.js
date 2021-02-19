@@ -67,8 +67,8 @@ function TodoEdit({navigation, route}) {
     console.log('editedItem: ', editedItem);
     editDetailApi(editedItem, dispatch);
     // // 이전 화면으로 돌아가기
-    navigation.pop();
-    // navigation.navigate('');
+    // navigation.pop();
+    navigation.navigate('DetailScreen', editedItem);
   };
 
   return (
